@@ -1,0 +1,11 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block content %}
+{% for movie in movies %}
+    <a class="movie" alt="{{ movie.title }}" href="#">
+       <img alt="{{ movie.title }}" src="{{ asset('posters/'~movie.imdbId~'.jpg') }}">
+   </a>
+{% endfor %}
+{% endblock %}
+
+{% block title %}Movies!{% endblock %}

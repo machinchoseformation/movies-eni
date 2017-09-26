@@ -17,4 +17,13 @@ class MovieController extends Controller
         ]);
     }
 
+    public function detailsAction($id, Request $request)
+    {
+        $repo = $this->getDoctrine()->getRepository("AppBundle:Movie");
+        $movie = $repo->find($id);
+
+        return $this->render('AppBundle:Movie:details.html.twig', [
+            "movie" => $movie
+        ]);
+    }
 }

@@ -1,0 +1,28 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-4">
+            <img class="img-responsive" alt="{{ movie.title }}" src="{{ asset('posters/'~movie.imdbId~'.jpg') }}">
+            <div class="rating">Rated {{ movie.rating }} / 10</div>
+        </div>
+        <div class="col-md-8 movie-info">
+            <h2>{{ movie.title }} ({{ movie.year }})</h2>
+            <div>
+                {% for genre in movie.genres %}
+                    <span class="genre">{{ genre.name }}</span>
+                {% endfor %}
+            </div>
+            <div><h3>Plot</h3>{{ movie.plot }}</div>
+            <div><h3>Actors</h3>{{ movie.cast }}</div>
+            <div><h3>Directors</h3>{{ movie.directors }}</div>
+
+            <div>
+                <h3>Trailer</h3>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ movie.trailerId }}" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block title %}Movies!{% endblock %}

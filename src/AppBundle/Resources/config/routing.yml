@@ -2,3 +2,7 @@ home:
     path:     /
     defaults: { _controller: AppBundle:Movie:home }
 
+details:
+    path:     /details/{id}
+    defaults: { _controller: AppBundle:Movie:details }
+

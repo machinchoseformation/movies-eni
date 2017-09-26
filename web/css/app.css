@@ -7,6 +7,10 @@ a {
     color: #EEE;
 }
 
+a:hover {
+    color: #EEE;
+}
+
 a.movie {
     display: block;
     float: left;
@@ -20,4 +24,20 @@ a.movie:hover img {
 a.movie img {
     width: 100%;
     opacity: 0.9;
+}
+
+span.genre {
+    display: inline-block;
+    padding: 5px;
+    background-color: #757575;
+}
+
+div.rating {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.movie-info h2 {
+    margin-top: 0;
 }

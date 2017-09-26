@@ -17,4 +17,16 @@ class AdminMovieController extends Controller
         ]);
     }
 
+    public function deleteAction($id)
+    {
+        $repo = $this->getDoctrine()->getRepository("AppBundle:Movie");
+        $movie = $repo->find($id);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($movie);
+        $em->flush();
+
+        $this->addFlash("success", "The movie was successfully deleted!");
+        return $this->redirectToRoute("admin_home");
+    }
 }

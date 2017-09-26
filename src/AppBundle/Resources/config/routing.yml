@@ -10,3 +10,7 @@ details:
 admin_home:
     path:     /admin/
     defaults: { _controller: AppBundle:AdminMovie:list }
+
+admin_delete:
+    path:    /admin/movies/delete/{id}
+    defaults: { _controller: AppBundle:AdminMovie:delete }

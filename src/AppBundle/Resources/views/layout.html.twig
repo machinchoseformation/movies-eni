@@ -13,6 +13,15 @@
         <header>
             <h1><a href="{{ path('home') }}" title="Go back home"><img src="{{ asset('img/logo.png') }}" alt="Movies!"> Movies!</a></h1>
         </header>
+
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="alert alert-{{ label }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+
         <main>
             {% block content %}{% endblock %}
         </main>

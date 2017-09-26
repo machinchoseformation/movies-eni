@@ -6,11 +6,12 @@
     <title>{% block title %}Movies!{% endblock %}</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="icon" href="{{ asset('img/logo.png') }}">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1><a href="{{ path('home') }}" title="Go back home">Movies!</a></h1>
+            <h1><a href="{{ path('home') }}" title="Go back home"><img src="{{ asset('img/logo.png') }}" alt="Movies!"> Movies!</a></h1>
         </header>
         <main>
             {% block content %}{% endblock %}

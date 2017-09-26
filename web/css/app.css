@@ -3,6 +3,12 @@ body {
     color: #EEE;
 }
 
+h1 img {
+    width: 50px;
+    position: relative;
+    top: -3px;
+}
+
 a {
     color: #EEE;
 }

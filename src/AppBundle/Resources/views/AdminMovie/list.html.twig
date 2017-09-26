@@ -1,0 +1,28 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block content %}
+    <div>
+        <a class="btn btn-success" href="#">Add a movie</a>
+    </div>
+
+    <h4>Showing {{ movies|length }} movies</h4>
+    <table class="table table-condensed">
+        <tr>
+            <th>Title</th>
+            <th>Year</th>
+            <th>Actions</th>
+        </tr>
+        {% for movie in movies %}
+            <tr>
+                <td><a href="{{ path('details', {'id': movie.id}) }}">{{ movie.title }}</a></td>
+                <td>{{ movie.year }}</td>
+                <td>
+                    <a class="btn btn-default btn-sm" href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a>
+                    <a class="btn btn-danger btn-sm" href="#"><span class="glyphicon glyphicon-remove"></span> Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
+
+{% block title %}Movies!{% endblock %}

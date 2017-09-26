@@ -6,3 +6,7 @@ details:
     path:     /details/{id}
     defaults: { _controller: AppBundle:Movie:details }
 
+#admin
+admin_home:
+    path:     /admin/
+    defaults: { _controller: AppBundle:AdminMovie:list }

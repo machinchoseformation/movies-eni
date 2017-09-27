@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Movie
@@ -25,6 +26,7 @@ class Movie
     /**
      * @var string
      *
+     * @Assert\NotBlank(message="Veuillez renseigner ce champ")
      * @ORM\Column(name="imdbId", type="string", length=20, unique=true)
      */
     private $imdbId;
@@ -32,13 +34,14 @@ class Movie
     /**
      * @var string
      *
+     * @Assert\NotBlank(message="Veuillez renseigner ce champ")
      * @ORM\Column(name="title", type="string", length=255)
      */
     private $title;
 
     /**
      * @var int
-     *
+     * @Assert\NotBlank(message="Veuillez renseigner ce champ")
      * @ORM\Column(name="year", type="integer")
      */
     private $year;
@@ -46,6 +49,7 @@ class Movie
     /**
      * @var string
      *
+     * @Assert\NotBlank(message="Veuillez renseigner ce champ")
      * @ORM\Column(name="cast", type="text")
      */
     private $cast;
@@ -53,6 +57,7 @@ class Movie
     /**
      * @var string
      *
+     * @Assert\NotBlank(message="Veuillez renseigner ce champ")
      * @ORM\Column(name="directors", type="text")
      */
     private $directors;
@@ -60,6 +65,7 @@ class Movie
     /**
      * @var string
      *
+     * @Assert\NotBlank(message="Veuillez renseigner ce champ")
      * @ORM\Column(name="writers", type="text")
      */
     private $writers;
@@ -67,6 +73,7 @@ class Movie
     /**
      * @var string
      *
+     * @Assert\NotBlank(message="Veuillez renseigner ce champ")
      * @ORM\Column(name="plot", type="text")
      */
     private $plot;
@@ -74,6 +81,7 @@ class Movie
     /**
      * @var float
      *
+     * @Assert\NotBlank(message="Veuillez renseigner ce champ")
      * @ORM\Column(name="rating", type="float")
      */
     private $rating;
@@ -81,6 +89,7 @@ class Movie
     /**
      * @var int
      *
+     * @Assert\NotBlank(message="Veuillez renseigner ce champ")
      * @ORM\Column(name="votes", type="integer")
      */
     private $votes;
@@ -88,6 +97,7 @@ class Movie
     /**
      * @var string
      *
+     * @Assert\NotBlank(message="Veuillez renseigner ce champ")
      * @ORM\Column(name="runtime", type="string", length=25)
      */
     private $runtime;
@@ -95,6 +105,7 @@ class Movie
     /**
      * @var string
      *
+     * @Assert\NotBlank(message="Veuillez renseigner ce champ")
      * @ORM\Column(name="trailerId", type="string", length=100, nullable=true)
      */
     private $trailerId;
@@ -102,6 +113,7 @@ class Movie
     /**
      * @var \DateTime
      *
+     * @Assert\NotBlank(message="Veuillez renseigner ce champ")
      * @ORM\Column(name="dateCreated", type="datetime")
      */
     private $dateCreated;
@@ -109,6 +121,7 @@ class Movie
     /**
      * @var \DateTime
      *
+     * @Assert\NotBlank(message="Veuillez renseigner ce champ")
      * @ORM\Column(name="dateModified", type="datetime")
      */
     private $dateModified;

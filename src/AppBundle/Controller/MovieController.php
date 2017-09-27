@@ -3,6 +3,8 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Movie;
+use AppBundle\Entity\Review;
+use AppBundle\Form\ReviewType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -20,8 +22,24 @@ class MovieController extends Controller
 
     public function detailsAction(Movie $movie, Request $request)
     {
+        //on affiche et on traite le formulaire de critiques
+        $review = new Review();
+        $review->setMovie($movie);
+        $reviewForm = $this->createForm(ReviewType::class, $review);
+        $reviewForm->handleRequest($request);
+
+        if ($reviewForm->isSubmitted() && $reviewForm->isValid()){
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($review);
+            $em->flush();
+
+            $this->addFlash("success", "Your review has been saved!");
+            return $this->redirectToRoute('details', ['id' => $movie->getId()]);
+        }
+
         return $this->render('AppBundle:Movie:details.html.twig', [
-            "movie" => $movie
+            "movie" => $movie,
+            "reviewForm" => $reviewForm->createView()
         ]);
     }
 }

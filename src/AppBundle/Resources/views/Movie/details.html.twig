@@ -5,6 +5,23 @@
         <div class="col-md-4">
             <img class="img-responsive" alt="{{ movie.title }}" src="{{ asset('posters/'~movie.imdbId~'.jpg') }}">
             <div class="rating">Rated {{ movie.rating }} / 10</div>
+
+            <div>
+                <h3>Leave your review!</h3>
+                {{ form(reviewForm) }}
+
+                <h3>Previous reviews</h3>
+                {% for review in movie.reviews %}
+                <div>
+                    <h4>{{ review.title }} ({{ review.rating }}/10) by <em>{{ review.username }}</em></h4>
+                    <p>{{ review.content }}</p>
+
+                </div>
+                {% else %}
+                    <p>No reviews yet!</p>
+                {% endfor %}
+            </div>
+
         </div>
         <div class="col-md-8 movie-info">
             <h2>{{ movie.title }} ({{ movie.year }})</h2>

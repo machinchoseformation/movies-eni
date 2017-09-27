@@ -9,6 +9,10 @@ h1 img {
     top: -3px;
 }
 
+input, textarea, button {
+    color: #000;
+}
+
 a {
     color: #EEE;
 }

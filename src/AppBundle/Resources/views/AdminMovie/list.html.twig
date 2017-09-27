@@ -2,7 +2,7 @@
 
 {% block content %}
     <div>
-        <a class="btn btn-success" href="#">Add a movie</a>
+        <a class="btn btn-success" href="{{ path('admin_movie_add') }}">Add a movie</a>
     </div>
 
     <h4>Showing {{ movies|length }} movies</h4>
@@ -17,8 +17,8 @@
                 <td><a href="{{ path('details', {'id': movie.id}) }}">{{ movie.title }}</a></td>
                 <td>{{ movie.year }}</td>
                 <td>
-                    <a class="btn btn-default btn-sm" href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a>
-                    <a class="btn btn-danger btn-sm" href="{{ path('admin_delete', {'id': movie.id}) }}"><span class="glyphicon glyphicon-remove"></span> Delete</a>
+                    <a class="btn btn-default btn-sm" href="{{ path('admin_movie_edit', {'id': movie.id}) }}"><span class="glyphicon glyphicon-edit"></span> Edit</a>
+                    <a class="btn btn-danger btn-sm" href="{{ path('admin_movie_delete', {'id': movie.id}) }}"><span class="glyphicon glyphicon-remove"></span> Delete</a>
                 </td>
             </tr>
         {% endfor %}

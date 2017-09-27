@@ -11,6 +11,14 @@ admin_home:
     path:     /admin/
     defaults: { _controller: AppBundle:AdminMovie:list }
 
-admin_delete:
+admin_movie_delete:
     path:    /admin/movies/delete/{id}
     defaults: { _controller: AppBundle:AdminMovie:delete }
+
+admin_movie_edit:
+    path:    /admin/movies/edit/{id}
+    defaults: { _controller: AppBundle:AdminMovie:edit }
+
+admin_movie_add:
+    path:    /admin/movies/add/
+    defaults: { _controller: AppBundle:AdminMovie:add }

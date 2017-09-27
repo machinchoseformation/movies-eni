@@ -25,6 +25,10 @@ class AdminMovieController extends Controller
         $movie = $repo->find($id);
 
         $em = $this->getDoctrine()->getManager();
+        foreach($movie->getReviews() as $review){
+            $em->remove($review);
+        }
+
         $em->remove($movie);
         $em->flush();
 

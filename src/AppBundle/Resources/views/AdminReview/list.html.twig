@@ -1,0 +1,26 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block content %}
+    <h4>Showing {{ reviews|length }} reviews</h4>
+    <table class="table table-condensed">
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Movie</th>
+            <th>Actions</th>
+        </tr>
+        {% for review in reviews %}
+            <tr>
+                <td>{{ review.title }}</a></td>
+                <td>{{ review.username }}</td>
+                <td><a href="{{ path('details', {'id': review.movie.id}) }}">{{ review.movie.title }}</a></td>
+                <td>
+                    <a class="btn btn-default btn-sm" href="{{ path('admin_review_edit', {'id': review.id}) }}"><span class="glyphicon glyphicon-edit"></span> Edit</a>
+                    <a class="btn btn-danger btn-sm" href="{{ path('admin_review_delete', {'id': review.id}) }}"><span class="glyphicon glyphicon-remove"></span> Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
+
+{% block title %}Movies!{% endblock %}

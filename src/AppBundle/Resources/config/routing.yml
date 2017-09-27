@@ -22,3 +22,15 @@ admin_movie_edit:
 admin_movie_add:
     path:    /admin/movies/add/
     defaults: { _controller: AppBundle:AdminMovie:add }
+
+admin_reviews:
+    path:     /admin/reviews/
+    defaults: { _controller: AppBundle:AdminReview:list }
+
+admin_review_delete:
+    path:    /admin/reviews/delete/{id}
+    defaults: { _controller: AppBundle:AdminReview:delete }
+
+admin_review_edit:
+    path:    /admin/reviews/edit/{id}
+    defaults: { _controller: AppBundle:AdminReview:edit }

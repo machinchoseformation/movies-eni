@@ -27,6 +27,7 @@ class MovieType extends AbstractType
             ->add('votes')
             ->add('runtime')
             ->add('trailerId')
+            //affiche la liste des catégories sous forme de checkboxes
             ->add('genres', EntityType::class, [
                 "class" => "AppBundle:Genre",
                 "choice_label" => "name",

@@ -33,6 +33,7 @@ class Genre
     /**
      * @var ArrayCollection
      *
+     * relation bidirectionnelle entre les genres et les films
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Movie", mappedBy="genres")
      */
     private $movies;

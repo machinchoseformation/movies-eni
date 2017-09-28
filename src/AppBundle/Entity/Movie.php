@@ -130,6 +130,7 @@ class Movie
     /**
      * @var ArrayCollection
      *
+     * relation bidirectionnelle entre les genres et les films
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Genre", inversedBy="movies")
      */
     private $genres;
@@ -138,6 +139,7 @@ class Movie
     /**
      * @var ArrayCollection
      *
+     * Un film peut avoir plusieurs reviews
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Review", mappedBy="movie")
      */
     private $reviews;

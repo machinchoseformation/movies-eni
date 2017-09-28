@@ -5,6 +5,7 @@
     {# pagination #}
     <div class="row pagination">
         <div class="col-xs-2">
+            {# voir le contrôleur pour savoir d'ou viennent ces variables #}
             {% if page > 1 %}
             <a class="btn btn-primary" href="{{ path('home', {'page': page-1}) }}">&lt;&lt;&nbsp;Prev</a>
             {% endif %}
@@ -19,11 +20,13 @@
         </div>
     </div>
 
+{# on boucle sur les films pour les afficher un par un #}
 {% for movie in movies %}
     <a class="movie" alt="{{ movie.title }}" href="{{ path('details', {'id': movie.id}) }}">
        <img alt="{{ movie.title }}" src="{{ asset('posters/'~movie.imdbId~'.jpg') }}">
    </a>
 {% endfor %}
+    
 {% endblock %}
 
 {% block title %}Movies!{% endblock %}

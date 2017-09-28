@@ -52,6 +52,7 @@ class Review
     /**
      * @var Movie
      *
+     * Une review appartient toujours à un seul film
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Movie", inversedBy="reviews")
      */
     private $movie;

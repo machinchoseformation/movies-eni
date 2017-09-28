@@ -10,9 +10,10 @@ namespace AppBundle\Repository;
  */
 class MovieRepository extends \Doctrine\ORM\EntityRepository
 {
-
+    //requête perso pour compter le nombre total de films en bdd
     public function countAll()
     {
+        //le "from" est sous-entendu ici
         $qb = $this->createQueryBuilder('m')->select('COUNT(m)');
         return $qb->getQuery()->getSingleScalarResult();
     }

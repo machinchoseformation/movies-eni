@@ -2,13 +2,16 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Review;
 use AppBundle\Form\ReviewType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * Voir AdminMovieController.php pour les commentaires, c'est pareil !
+ */
 class AdminReviewController extends Controller
 {
+    //liste des reviews
     public function listAction()
     {
         $repo = $this->getDoctrine()->getRepository("AppBundle:Review");
@@ -19,6 +22,7 @@ class AdminReviewController extends Controller
         ]);
     }
 
+    //efface une review en fct de son id
     public function deleteAction($id)
     {
         $repo = $this->getDoctrine()->getRepository("AppBundle:Review");
@@ -32,6 +36,7 @@ class AdminReviewController extends Controller
         return $this->redirectToRoute("admin_reviews");
     }
 
+    //modifie une review en fct de son id
     public function editAction($id, Request $request)
     {
         $repo = $this->getDoctrine()->getRepository("AppBundle:Review");

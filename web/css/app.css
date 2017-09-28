@@ -1,6 +1,7 @@
 body {
     background-color: #000;
     color: #EEE;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 main::after{
@@ -53,6 +54,8 @@ a.movie img {
 .pagination {
     display: block;
     margin: 10px 0;
+    font-weight:bold;
+    font-size: 1.2em;
 }
 
 span.genre {
@@ -69,4 +72,8 @@ div.rating {
 
 .movie-info h2 {
     margin-top: 0;
+}
+
+h3 {
+    margin-bottom: 0;
 }

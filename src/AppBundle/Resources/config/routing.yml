@@ -1,6 +1,8 @@
 home:
-    path:     /
-    defaults: { _controller: AppBundle:Movie:home }
+    path:     /{page}
+    defaults: { _controller: AppBundle:Movie:home, page: 1 }
+    requirements:
+        page: '\d+'
 
 details:
     path:     /details/{id}

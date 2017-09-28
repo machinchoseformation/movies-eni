@@ -10,13 +10,28 @@ use Symfony\Component\HttpFoundation\Request;
 
 class MovieController extends Controller
 {
-    public function homeAction()
+    public function homeAction($page = 1)
     {
         $repo = $this->getDoctrine()->getRepository("AppBundle:Movie");
-        $movies = $repo->findBy([], ["dateCreated" => "DESC"], 50, 0);
+
+        //pour la pagination
+        $numPerPage = 50;
+        $offset = ($page-1) * $numPerPage;
+        $totalMoviesNum = $repo->countAll();
+        $totalPagesNum = ceil($totalMoviesNum / $numPerPage);
+
+        $movies = $repo->findBy([], ["dateCreated" => "DESC"], $numPerPage, $offset);
+
+        if (empty($movies)){
+            throw $this->createNotFoundException("No movies here!");
+        }
 
         return $this->render('AppBundle:Movie:home.html.twig', [
-            "movies" => $movies
+            "movies" => $movies,
+            "page" => $page,
+            "numPerPage" => $numPerPage,
+            "totalPagesNum" => $totalPagesNum,
+            "totalMoviesNum" => $totalMoviesNum
         ]);
     }
 

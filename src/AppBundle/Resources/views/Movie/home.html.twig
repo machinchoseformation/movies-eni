@@ -1,6 +1,24 @@
 {% extends 'AppBundle::layout.html.twig' %}
 
 {% block content %}
+
+    {# pagination #}
+    <div class="row pagination">
+        <div class="col-xs-2">
+            {% if page > 1 %}
+            <a class="btn btn-primary" href="{{ path('home', {'page': page-1}) }}">&lt;&lt;&nbsp;Prev</a>
+            {% endif %}
+        </div>
+        <div class="col-xs-8 text-center">
+            Page {{ page }} of {{ totalPagesNum }}. Showing {{ ((page-1)*numPerPage+1) }}-{{ numPerPage*page }} of {{ totalMoviesNum }} movies.
+        </div>
+        <div class="col-xs-2 text-right">
+            {% if page < totalPagesNum %}
+                <a class="btn btn-primary" href="{{ path('home', {'page': page+1}) }}">Next&nbsp;&gt;&gt;</a>
+            {% endif %}
+        </div>
+    </div>
+
 {% for movie in movies %}
     <a class="movie" alt="{{ movie.title }}" href="{{ path('details', {'id': movie.id}) }}">
        <img alt="{{ movie.title }}" src="{{ asset('posters/'~movie.imdbId~'.jpg') }}">

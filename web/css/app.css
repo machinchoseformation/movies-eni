@@ -35,7 +35,10 @@ a:hover {
 a.movie {
     display: block;
     float: left;
-    width: 226px;
+    width: 220px;
+    height: 332px;
+    overflow: hidden;
+    margin: 1px;
 }
 
 a.movie:hover img {
@@ -45,6 +48,11 @@ a.movie:hover img {
 a.movie img {
     width: 100%;
     opacity: 0.9;
+}
+
+.pagination {
+    display: block;
+    margin: 10px 0;
 }
 
 span.genre {

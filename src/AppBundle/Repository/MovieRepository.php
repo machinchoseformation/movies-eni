@@ -10,4 +10,11 @@ namespace AppBundle\Repository;
  */
 class MovieRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function countAll()
+    {
+        $qb = $this->createQueryBuilder('m')->select('COUNT(m)');
+        return $qb->getQuery()->getSingleScalarResult();
+    }
+
 }
